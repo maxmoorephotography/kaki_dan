@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Kaki:Dan</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/site.css">
+<style>
+  .checkout-wrap{max-width:520px;margin:140px auto 100px;padding:0 24px;}
+  .checkout-card{background:var(--cream);border:1px solid rgba(43,33,25,.12);border-radius:6px;padding:40px;box-shadow:var(--paper-shadow);}
+  .checkout-card h1{font-size:26px;margin-bottom:8px;}
+  .checkout-card p.note{color:var(--ink-soft);font-size:14.5px;margin-bottom:28px;}
+  .line{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(43,33,25,.1);font-size:15px;}
+  .line strong{font-family:'Fraunces',serif;}
+  #spike-payment-element{margin:28px 0;padding:20px;border:1px dashed rgba(43,33,25,.3);border-radius:4px;color:var(--ink-soft);font-size:14px;background:rgba(255,255,255,.4);}
+  .back{display:inline-block;margin-top:20px;font-size:13.5px;color:var(--ink-soft);text-decoration:none;}
+  .back:hover{color:var(--rust);}
+</style>
+</head>
+<body>
+<div class="checkout-wrap">
+  <div class="checkout-card">
+    <h1>Checkout</h1>
+    <p class="note">Secure payment — nothing on the receipt or the parcel gives it away.</p>
+
+    <div class="line"><span>Item</span><strong id="line-item">Gift Box</strong></div>
+    <div class="line"><span>Shipping (AU metro, 3 business days)</span><strong>Included</strong></div>
+    <div class="line"><span>Total</span><strong id="line-total">$48.00 AUD</strong></div>
+
+    <!--
+      TODO — Spike payment integration goes here.
+
+      This is a placeholder only. To wire up a real Spike checkout:
+        1. Include the Spike.js SDK (script tag or npm package) per Spike's
+           current docs — check https://spikeapp.co (or wherever Spike's
+           current developer docs live) since this scaffold was built
+           without access to Spike's live API reference.
+        2. Create a Spike payment intent / checkout session from your
+           backend (never from client-side JS with a secret key).
+        3. Mount Spike's hosted payment element into #spike-payment-element
+           below, or redirect to a Spike-hosted checkout URL.
+        4. Read data-product / data-price-aud off the button that linked
+           here (see index.html) to populate the line items above via
+           checkout.js.
+        5. Handle success/cancel redirects — see success.html and
+           cancel.html stubs in this folder.
+    -->
+    <div id="spike-payment-element">
+      Payment form placeholder — Spike checkout element mounts here.
+    </div>
+
+    <a href="../../index.html#gift" class="back">← Back to Kaki:Dan</a>
+  </div>
+</div>
+
+<script src="../../js/site.js"></script>
+<script src="checkout.js"></script>
+</body>
+</html>
